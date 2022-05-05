@@ -30,7 +30,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
         await delay(1000);
       }
     } catch (error) {
-      alert('Ошибка при создании заказа :(');
+      alert('Error in order creation :(');
     }
     setIsLoading(false);
   };
@@ -39,7 +39,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
     <div className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}>
       <div className={styles.drawer}>
         <h2 className="d-flex justify-between mb-30">
-          Корзина <img onClick={onClose} className="cu-p" src="img/btn-remove.svg" alt="Close" />
+          CART <img onClick={onClose} className="cu-p" src="img/btn-remove.svg" alt="Close" />
         </h2>
 
         {items.length > 0 ? (
@@ -67,28 +67,28 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
             <div className="cartTotalBlock">
               <ul>
                 <li>
-                  <span>Итого:</span>
+                  <span>Total:</span>
                   <div></div>
                   <b>{totalPrice} PLN. </b>
                 </li>
                 <li>
-                  <span>Налог 5%:</span>
+                  <span>Tax 5%:</span>
                   <div></div>
                   <b>{(totalPrice / 100) * 5} PLN. </b>
                 </li>
               </ul>
               <button disabled={isLoading} onClick={onClickOrder} className="greenButton">
-                Оформить заказ <img src="img/arrow.svg" alt="Arrow" />
+                DELIVERY AND PAYMENT <img src="img/arrow.svg" alt="Arrow" />
               </button>
             </div>
           </div>
         ) : (
           <Info
-            title={isOrderComplete ? 'Заказ оформлен!' : 'Корзина пустая'}
+            title={isOrderComplete ? 'Got it!' : 'Cart is empty'}
             description={
               isOrderComplete
-                ? `Ваш заказ #${orderId} скоро будет передан курьерской доставке`
-                : 'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.'
+                ? `Your order #${orderId} will be submitted for processing`
+                : 'Add at least one pair of sneakers to order.'
             }
             image={isOrderComplete ? 'img/complete-order.jpg' : 'img/empty-cart.jpg'}
           />
