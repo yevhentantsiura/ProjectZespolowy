@@ -29,7 +29,7 @@ function Home({
   return (
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
-        <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все кроссовки'}</h1>
+        <h1>{searchValue ? `Looking for: "${searchValue}"` : 'All models'}</h1>
         <div className="search-block d-flex">
           <img src="img/search.svg" alt="Search" />
           {searchValue && (
@@ -40,7 +40,7 @@ function Home({
               alt="Clear"
             />
           )}
-          <input onChange={onChangeSearchInput} value={searchValue} placeholder="Поиск..." />
+          <input onChange={onChangeSearchInput} value={searchValue} placeholder="Search..." />
         </div>
       </div>
       <div className="d-flex flex-wrap">{renderItems()}</div>

@@ -31,7 +31,7 @@ function App() {
         setFavorites(favoritesResponse.data);
         setItems(itemsResponse.data);
       } catch (error) {
-        alert('Ошибка при запросе данных ;(');
+        alert('Error in requesting data ;(');
         console.error(error);
       }
     }
@@ -61,7 +61,7 @@ function App() {
         );
       }
     } catch (error) {
-      alert('Ошибка при добавлении в корзину');
+      alert('Error adding to cart');
       console.error(error);
     }
   };
@@ -71,7 +71,7 @@ function App() {
       axios.delete(`https://6270606b6a36d4d62c187306.mockapi.io/cart/${id}`);
       setCartItems((prev) => prev.filter((item) => Number(item.id) !== Number(id)));
     } catch (error) {
-      alert('Ошибка при удалении из корзины');
+      alert('Error deleting from cart');
       console.error(error);
     }
   };
@@ -89,7 +89,7 @@ function App() {
         setFavorites((prev) => [...prev, data]);
       }
     } catch (error) {
-      alert('Не удалось добавить в фавориты');
+      alert('Failed to add to favorites');
       console.error(error);
     }
   };
